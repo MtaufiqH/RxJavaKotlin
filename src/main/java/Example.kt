@@ -1,8 +1,6 @@
 import io.reactivex.Observable
-import io.reactivex.rxkotlin.subscribeBy
 import kotlin.math.pow
 import kotlin.math.roundToInt
-import kotlin.math.sqrt
 
 fun main() {
     // example of sequence
@@ -70,13 +68,26 @@ fun main() {
 
     exampleOf("range") {
         val observable = Observable.range(1, 10)
-        observable.subscribe{
+        observable.subscribe {
             val n = it.toDouble()
             val fibonacci = ((1.61803.pow(n) - 0.61803.pow(n)) / 2.23606).roundToInt()
             println("$n: $fibonacci")
 
         }
 
+    }
+
+    exampleOf("dispose") {
+        // 1. Create an Observable of Strings
+        val mostPopular = Observable.just("A", "B", "C")
+        // 2. Create an observable and disposable
+        val subscription = mostPopular.subscribe {
+            // 3. subscribe to the Observable and print out the emitted items
+            println(it)
+        }
+
+        // 4. add the disposable to a CompositeDisposable
+        subscription.dispose()
     }
 }
 
