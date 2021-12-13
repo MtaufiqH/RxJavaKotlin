@@ -1,3 +1,5 @@
+package observable
+
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
 

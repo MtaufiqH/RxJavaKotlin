@@ -1,3 +1,5 @@
+package observable
+
 import io.reactivex.Observable
 import kotlin.math.pow
 import kotlin.math.roundToInt
