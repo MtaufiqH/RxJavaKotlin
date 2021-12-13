@@ -1,5 +1,8 @@
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
+import kotlin.math.pow
+import kotlin.math.roundToInt
+import kotlin.math.sqrt
 
 fun main() {
     // example of sequence
@@ -44,27 +47,37 @@ fun main() {
 //    }
 
     // We use SubscribeBy extension function to simplify the subscription process.
-    exampleOf("empty" ) {
-        val observable = Observable.empty<Unit>()
-        observable.subscribeBy(
-            onNext = { println(it) },
-            onError = { it.printStackTrace() },
-            onComplete = { println("onComplete" ) }
-        )
-    }
+//    exampleOf("empty" ) {
+//        val observable = Observable.empty<Unit>()
+//        observable.subscribeBy(
+//            onNext = { println(it) },
+//            onError = { it.printStackTrace() },
+//            onComplete = { println("onComplete" ) }
+//        )
+//    }
 
 
     // The `Never` operator is an observable that never emits any item.
     // this observable is useful when you want to create a subscription that never ends.
     // it's useful for testing purposes.
-    exampleOf("never") {
-        val observable = Observable.never<Unit>()
-        observable.subscribeBy(
-            onNext = { println(it) },
-            onComplete = { println("onComplete" ) }
-        )
-    }
+//    exampleOf("never") {
+//        val observable = Observable.never<Unit>()
+//        observable.subscribeBy(
+//            onNext = { println(it) },
+//            onComplete = { println("onComplete" ) }
+//        )
+//    }
 
+    exampleOf("range") {
+        val observable = Observable.range(1, 10)
+        observable.subscribe{
+            val n = it.toDouble()
+            val fibonacci = ((1.61803.pow(n) - 0.61803.pow(n)) / 2.23606).roundToInt()
+            println("$n: $fibonacci")
+
+        }
+
+    }
 }
 
 fun exampleOf(description: String, action: () -> Unit) {
