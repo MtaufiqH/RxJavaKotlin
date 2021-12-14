@@ -33,7 +33,10 @@ There are four types of **Subject** in RxJava:
 2. _**BehaviorSubject**_, starts with an optional initial value and replay it to new subscribers
 3. _**ReplaySubject**_, initialized with a buffer size and will maintain a buffer of elements 
 up to that size and replay it to new subscribers
-4. _**AsyncSubject**_, starts empty and only emits the last item it receives before it's completed to subscribers. 
+4. _**AsyncSubject**_, starts empty and only emits the last item it receives before it's completed to subscribers.
+
+- Using [RxRelay](https://github.com/JakeWharton/RxRelay) to help us handle the subject.
+
 
 
 
