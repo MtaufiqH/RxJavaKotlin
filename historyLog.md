@@ -26,8 +26,7 @@ There are three special types of **Observable** in RxJava:
 2. _**Completable**_, will only emit a complete or error event, and it doesn't emit any value.
 3. _**Maybe**_, combination from Single and Completable, will emit either success (values) or error event.
 
-###### Chapter 3: Subjets
-
+###### Chapter 3: Subjects
 
 
 
