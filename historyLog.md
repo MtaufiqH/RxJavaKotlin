@@ -27,6 +27,15 @@ There are three special types of **Observable** in RxJava:
 3. _**Maybe**_, combination from Single and Completable, will emit either success (values) or error event.
 
 ###### Chapter 3: Subjects
+- Subject are observable that are also **Observer**.
+- PublishSubject is used when you only want to receive events that occur after you've subscribed.
+- BehaviourSubject will relay the latest event that has occurred when you susbcribe, including
+  an optional initial value.
+- ReplaySubject will buffer a configurable number of events that get replayed to new subscribers.
+  you must watch out for buffering too much data in a ReplaySubject.
+- AsyncSubject only sends subscribers the most recent next event upon a complete event occuring.
+- The [RxRelay](https://github.com/JakeWharton/RxRelay) library can be used with relays in place of subjects.
+  to prevent accidental complete and error events to be sent.
 
 There are four types of **Subject** in RxJava:
 1. _**PublishSubject**_, start empty and only emits new element to subscribers
@@ -34,8 +43,6 @@ There are four types of **Subject** in RxJava:
 3. _**ReplaySubject**_, initialized with a buffer size and will maintain a buffer of elements 
 up to that size and replay it to new subscribers
 4. _**AsyncSubject**_, starts empty and only emits the last item it receives before it's completed to subscribers.
-
-- Using [RxRelay](https://github.com/JakeWharton/RxRelay) to help us handle the subject.
 
 
 
