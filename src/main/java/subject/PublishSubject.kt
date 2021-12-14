@@ -1,5 +1,6 @@
 package subject
 
+import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.subjects.PublishSubject
 import observable.exampleOf
 
@@ -16,7 +17,7 @@ fun main() {
          *
          * */
         val publishSubject = PublishSubject.create<Int>()
-//        publishSubject.onNext(1)
+        publishSubject.onNext(1)
 
         val subscriptionOne = publishSubject.subscribe {
             /**
@@ -31,8 +32,50 @@ fun main() {
 
             println("Received $it")
         }
+
         publishSubject.onNext(1)
         publishSubject.onNext(2)
         publishSubject.onNext(3)
+
+
+        val subscriptionTwo = publishSubject.subscribe {
+            printWithLabel("2)", it)
+        }
+
+        publishSubject.onNext(4)
+
+        subscriptionOne.dispose()
+        publishSubject.onNext(5)
+
+        publishSubject.onComplete()
+        publishSubject.onNext(6)
+        subscriptionTwo.dispose()
+
+
+        /**
+         *
+         * PublishSubject is a hot observable, meaning that it will
+         * emit to all subscribers, even if they are not subscribed
+         * when the data is emitted.
+         *
+         * */
+
+        val subscriptionThree = publishSubject.subscribeBy(
+            onNext = {
+                printWithLabel("3)", it)
+            },
+            onComplete = {
+                printWithLabel("3)", "Completed")
+            }
+        )
+
+        publishSubject.onNext(7)
+
     }
+
+
+}
+
+fun <T> printWithLabel(description: String, value: T) {
+    println("$description: $value")
 }

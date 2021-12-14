@@ -28,6 +28,12 @@ There are three special types of **Observable** in RxJava:
 
 ###### Chapter 3: Subjects
 
+There are four types of **Subject** in RxJava:
+1. _**PublishSubject**_, start empty and only emits new element to subscribers
+2. _**BehaviorSubject**_, starts with an optional initial value and replay it to new subscribers
+3. _**ReplaySubject**_, initialized with a buffer size and will maintain a buffer of elements 
+up to that size and replay it to new subscribers
+4. _**AsyncSubject**_, starts empty and only emits the last item it receives before it's completed to subscribers. 
 
 
 
