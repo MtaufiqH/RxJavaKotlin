@@ -44,7 +44,9 @@ There are four types of **Subject** in RxJava:
 up to that size and replay it to new subscribers
 4. _**AsyncSubject**_, starts empty and only emits the last item it receives before it's completed to subscribers.
 
-##### Chapter 4:  Filtering Operators
+##### Chapter 4:  Operators
+
+###### Filtering Operator
 - **Ignoring** operators like ignoreElements, elementAt, and filter let you remove 
 certain element from an Observable stream. 
 - **Skipping** operators let you skip certain element and then begin emitting. 
@@ -53,9 +55,13 @@ certain element from an Observable stream.
 an Observable stream.
 
 ###### Transforming Operator
-
-- 
-
+- **Transforming** operator let you transform observable items from their original type to a new type.
+- we can use **toList** to turn a normal observable into an observable that emits a single list. 
+- the **map** operator will transform individual elements in an observable to some other value or type.
+- we can use **flatMap** to flatten an observable stream of observables into one stream of items. 
+- **SwitchMap** will also flatten a stream of observables, but this time only listening to the observable in the source that has most recently emitted an item.
+- we use **Materialize** to make observables emit notification of events rather than the events themselves. and **Dematerialize** to transform from notifications 
+type back to the original type. 
 
 
 
