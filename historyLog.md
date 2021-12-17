@@ -2,7 +2,7 @@
 
 ### Key Points:
 
-###### Chapter 1: Introduction
+##### Chapter 1: Introduction
 
 - **RxJava** is library that provides an Rx framework for Java-based projects such us Android.
 - **RxKotlin** library adds some kotlin related utilities and extension on top of RxJava.
@@ -12,7 +12,7 @@
 applications with reactive programming.
 
 
-###### Chapter 2: Observables
+##### Chapter 2: Observables
 
  - Everything in RxJava is a Sequence. and the primary sequence type **Observable**
  - Observable start emitting when they are **subscribed** to. 
@@ -26,7 +26,7 @@ There are three special types of **Observable** in RxJava:
 2. _**Completable**_, will only emit a complete or error event, and it doesn't emit any value.
 3. _**Maybe**_, combination from Single and Completable, will emit either success (values) or error event.
 
-###### Chapter 3: Subjects
+##### Chapter 3: Subjects
 - Subject are observable that are also **Observer**.
 - PublishSubject is used when you only want to receive events that occur after you've subscribed.
 - BehaviourSubject will relay the latest event that has occurred when you susbcribe, including
@@ -44,13 +44,19 @@ There are four types of **Subject** in RxJava:
 up to that size and replay it to new subscribers
 4. _**AsyncSubject**_, starts empty and only emits the last item it receives before it's completed to subscribers.
 
-###### Chapter 4: Operators
+##### Chapter 4:  Filtering Operators
 - **Ignoring** operators like ignoreElements, elementAt, and filter let you remove 
 certain element from an Observable stream. 
 - **Skipping** operators let you skip certain element and then begin emitting. 
 - Conversely, **taking** operators let you take certain element and then stop emitting. 
 - **Distinct** operators let your prevent duplicates from being emitted back-to-back in 
 an Observable stream.
+
+###### Transforming Operator
+
+- 
+
+
 
 
 
