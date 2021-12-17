@@ -44,7 +44,13 @@ There are four types of **Subject** in RxJava:
 up to that size and replay it to new subscribers
 4. _**AsyncSubject**_, starts empty and only emits the last item it receives before it's completed to subscribers.
 
-
+###### Chapter 4: Operators
+- **Ignoring** operators like ignoreElements, elementAt, and filter let you remove 
+certain element from an Observable stream. 
+- **Skipping** operators let you skip certain element and then begin emitting. 
+- Conversely, **taking** operators let you take certain element and then stop emitting. 
+- **Distinct** operators let your prevent duplicates from being emitted back-to-back in 
+an Observable stream.
 
 
 
